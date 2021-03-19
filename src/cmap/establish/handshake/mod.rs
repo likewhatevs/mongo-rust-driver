@@ -4,7 +4,7 @@ mod test;
 use std::time::Instant;
 
 use lazy_static::lazy_static;
-use os_info::{Type, Version};
+// use os_info::{Type, Version};
 
 use crate::{
     bson::{doc, Bson, Document},
@@ -115,20 +115,20 @@ lazy_static! {
             platform: None,
         };
 
-        let info = os_info::get();
-
-        if info.os_type() != Type::Unknown {
-            let version = info.version();
-
-            if *version != Version::Unknown {
-                metadata.os.version = Some(info.version().to_string());
-            }
-        }
-
-        if let Some((version, channel, date)) = version_check::triple() {
-            metadata.platform =
-                Some(format!("rustc {} {} ({}) with {}", version, channel, date, RUNTIME_NAME));
-        }
+        // let info = os_info::get();
+        //
+        // if info.os_type() != Type::Unknown {
+        //     let version = info.version();
+        //
+        //     if *version != Version::Unknown {
+        //         metadata.os.version = Some(info.version().to_string());
+        //     }
+        // }
+        //
+        // if let Some((version, channel, date)) = version_check::triple() {
+        //     metadata.platform =
+        //         Some(format!("rustc {} {} ({}) with {}", version, channel, date, RUNTIME_NAME));
+        // }
 
         metadata
     };
